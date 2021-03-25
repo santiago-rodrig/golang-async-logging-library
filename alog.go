@@ -67,7 +67,7 @@ func (al Alog) write(msg string, wg *sync.WaitGroup) {
 		}
 	}()
 	al.m.Lock()
-	_, err := al.Write(al.formatMessage(msg))
+	_, err := al.Write(msg)
 	al.m.Unlock()
 	if err != nil {
 		go func(al Alog, err error) {
